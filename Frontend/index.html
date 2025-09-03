@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Branch Management System</title>
-  <link rel="stylesheet" href="stylesssss.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -54,15 +54,16 @@
             
             <div class="form-group">
               <label for="contact">Contact</label>
-              <input type="text" id="contact" name="contact" required placeholder="Enter contact number">
+              <input type="number" id="contact" name="contact" required placeholder="Enter contact number">
             </div>
-
-            <button type="submit" class="btn" id="submit-btn">Add Branch</button>
-            <button type="button" class="btn btn-warning" id="cancel-btn" onclick="cancelEdit()">Cancel</button>
+            <div class="btn-container">
+                <button type="submit" class="btn" id="submit-btn">Add Branch</button>
+                <button type="button" class="btn btn-warning" id="cancel-btn" onclick="cancelEdit()">Cancel</button>
+            </div>
           </form>
-          <div id="messageBox" class="message"></div>
         </div>
-
+        
+        <div id="messageBox" class="message"></div>
         <div class="branch-list">
           <h2>Branch Records</h2>
           <div id="branchesList">

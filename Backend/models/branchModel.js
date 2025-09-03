@@ -17,11 +17,6 @@ const branchSchema = new mongoose.Schema({
     contact: {
         type: Number,
         required: true
-    },
-    email: {
-        type: String,
-        unique: true,
-        sparse: true  // optional field, but unique if present
     }
 }, { timestamps: true });
 

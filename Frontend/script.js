@@ -21,11 +21,11 @@ async function renderBranches() {
           <div><strong>Name:</strong> ${branch.branchName}</div>
           <div><strong>Location:</strong> ${branch.location}</div>
           <div><strong>Contact:</strong> ${branch.contact}</div>
-        </div>
-        <div class="actions">
-          <button class="btn" onclick="editBranch('${branch._id}')">Edit</button>
-          <button class="btn btn-danger" onclick="deleteBranch('${branch._id}')">Delete</button>
-        </div>
+          <div class="actions">
+            <button class="btn" onclick="editBranch('${branch._id}')">Edit</button>
+            <button class="btn btn-danger" onclick="deleteBranch('${branch._id}')">Delete</button>
+          </div>
+          </div>
       </div>
     `).join('');
   } catch (err) {
@@ -37,12 +37,13 @@ async function renderBranches() {
 async function handleSubmit(e) {
   e.preventDefault();
 
-  const branchData = {
-    branchId: document.getElementById('branchId').value,
-    branchName: document.getElementById('branchName').value,
-    location: document.getElementById('location').value,
-    contact: document.getElementById('contact').value
-  };
+const branchData = {
+  branchId: document.getElementById('branchId').value,
+  branchName: document.getElementById('branchName').value,
+  location: document.getElementById('location').value,
+  contact: Number(document.getElementById('contact').value) // <-- FIXED
+};
+
 
   try {
     if (editingBranchId) {
@@ -129,7 +130,7 @@ async function editBranch(id) {
 document.getElementById("add-icon").addEventListener("click", () => {
   const formSection = document.querySelector(".form-section");
   formSection.style.display = 
-    formSection.style.display === "none" || formSection.style.display === "" 
+    formSection.style.display === "none" || formSection.style.display === ""
       ? "block" 
       : "none";
 });
@@ -137,3 +138,5 @@ document.getElementById("add-icon").addEventListener("click", () => {
 document.getElementById("cancel-btn").addEventListener("click", () => {
   cancelEdit();
 });
+
+// okay
