@@ -1,0 +1,252 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Times New Roman', 'Poppins', sans-serif;
+  background-image: url("https://res.cloudinary.com/dcmcrc4v3/image/upload/v1756911569/kenqxhqhf90dmuctdq57.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  padding: 20px;
+  color: #393B65;
+  line-height: 1.6;
+}
+
+/* Glass Effect for Container */
+.container.glass-card {
+  --bg-color: rgba(255, 255, 255, 0.25);
+  --highlight: rgba(255, 255, 255, 0.75);
+  --text: #013237;
+
+  position: relative;
+  max-width: 1200px;
+  margin: 40px auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Glass layers */
+.glass-filter,
+.glass-overlay,
+.glass-specular {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.glass-filter {
+  z-index: 1;
+  backdrop-filter: blur(8px);
+  filter: url(#glass-distortion) saturate(120%) brightness(1.15);
+}
+
+.glass-overlay {
+  z-index: 2;
+  background: var(--bg-color);
+}
+
+.glass-specular {
+  z-index: 3;
+  box-shadow: inset 1px 1px 1px var(--highlight);
+}
+
+.glass-content {
+  position: relative;
+  z-index: 4;
+  padding: 20px;
+  color: var(--text);
+}
+
+/* Header */
+.header {
+  background: rgba(0, 0, 0, 0.596);
+  color: #f5f6f7;
+  padding: 20px;
+  text-align: center;
+  border-radius: 15px;
+  margin: 0 20px 20px;
+}
+
+.header h1 {
+  font-size: 2.2em;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.header h2 {
+  font-weight: 600;
+  opacity: 0.9;
+  font-size: 1.5em;
+}
+
+/* Main content */
+.main-content {
+  padding: 20px;
+}
+
+.add-icon-container {
+  display: flex;
+  justify-content: end;
+  height: 80px;
+  margin-top: -40px;
+}
+
+#add-icon {
+  width: 100px;
+  cursor: pointer;
+}
+
+.form-section {
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 12px;
+  margin-bottom: 35px;
+  border-left: 5px solid #C6E6B2;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  display: none;
+  transition: transform 0.3s ease;
+}
+
+.form-section:hover {
+  transform: translateY(-3px);
+}
+
+.form-section h2 {
+  margin-bottom: 20px;
+  font-size: 1.6em;
+  font-weight: 600;
+  color: #013237;
+}
+
+/* Form styling */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #013237;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background-color: #ffffff;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 12px rgba(52, 152, 219, 0.25);
+}
+
+/* Buttons */
+.btn {
+  background: linear-gradient(135deg, #417c59, #1e4b30);
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-right: 10px;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+.btn-warning {
+  background: linear-gradient(135deg, #f39c12, #e67e22);
+}
+
+/* Branch list */
+.branch-list {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.branch-list h2 {
+  background: #203031;
+  color: white;
+  padding: 20px 30px;
+  margin: 0;
+  border-radius: 12px 12px 0 0;
+}
+
+.branch-item {
+  padding: 25px 30px;
+  border-bottom: 1px solid #ecf0f1;
+  transition: background 0.3s ease;
+}
+
+.branch-item:hover {
+  background: #f8f9fa;
+}
+
+.branch-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Status messages */
+.status-message {
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.status-success {
+  background: #d4edda;
+  color: #4e5c51;
+}
+
+.status-error {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .branch-info {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .main-content {
+    padding: 10px;
+  }
+
+  .form-section {
+    padding: 20px;
+  }
+
+  .container {
+    margin: 10px;
+    border-radius: 12px;
+  }
+}
