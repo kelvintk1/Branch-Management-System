@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api/branches";
+const API_URL = "https://branch-management-system-3jb5.vercel.app/api/branches";
 const form = document.getElementById("branchForm");
 const branchesList = document.getElementById("branchesList");
 
